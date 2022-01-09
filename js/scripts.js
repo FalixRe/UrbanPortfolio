@@ -32,3 +32,7 @@
     });
 
 })(jQuery);
+
+
+document.querySelector('video').defaultPlaybackRate = 0.8;
+document.querySelector('video').play();

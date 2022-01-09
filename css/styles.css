@@ -233,7 +233,7 @@ header {
     color: #fff;
     width: 100%;
     background-color: #c9c9c9;
-    background-image: url('https://splashbase.s3.amazonaws.com/lifeofpix/regular/Life-of-Pix-free-stock-photos-Slate-Stone-Xeromatic-1440x953.jpg');
+    background-image: url('../images/TenerifeBackground.jpg');
     background-position: center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -360,6 +360,12 @@ textarea {
 @media(min-width:992px) {
     .feature {
         margin: 20px auto 0;
+    }
+    
+    .face-circle {
+        height: 300px;
+        weight: 300px;
+        border-radius: 150px;
     }
 }
 

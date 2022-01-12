@@ -33,6 +33,18 @@
 
 })(jQuery);
 
-
-document.querySelector('video').defaultPlaybackRate = 0.8;
-document.querySelector('video').play();
+window.onload = function() {
+    let myQuotes = ['Hi! Welcome, hello!',
+                    'Let\'s sail!',
+                    'And he set sail again...',
+                    'Staying home today.',
+                    'We and the crater :)',
+                    'Whoa, there are more islands here',
+                    'Pigeons, pigeons everywhere!',
+                    'Kitty, kitty, meow',
+                    'Waves',
+                    'Nice',
+                    'Emm, what now?'
+                    ];
+    document.getElementById('my-quote').innerHTML = '"'+ myQuotes[Math.floor(myQuotes.length * Math.random())]+'"';  
+};

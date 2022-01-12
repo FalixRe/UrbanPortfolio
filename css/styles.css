@@ -176,11 +176,24 @@ footer {
 }
 
 
+.face-circle {
+    height: 150px;
+    weight: 150px;
+    border-radius: 75px;
+}
+
 @media(min-width:768px) {
     .navbar-default {
         border-color: transparent;
         background-color: transparent;
         min-height: 60px;
+    }
+    
+    
+    .face-circle {
+        height: 200px;
+        weight: 200px;
+        border-radius: 100px;
     }
 
     .navbar-header > .navbar-brand {
@@ -292,6 +305,12 @@ footer {
 @media(min-width:768px) {
     .icon-lg {
         font-size: 80px;
+    }
+    
+    .face-circle {
+        height: 200px;
+        weight: 200px;
+        border-radius: 100px;
     }
     
     header {

@@ -139,21 +139,48 @@ let localizationTable = {
 
 
 window.onload = function() {
-    let myQuotes = ['Hi! Welcome, hello!',
-                    'Let\'s sail!',
-                    'And he set sail again...',
-                    'Staying home today.',
-                    'We and the crater :)',
-                    'Whoa, there are more islands here',
-                    'Pigeons, pigeons everywhere!',
-                    'Kitty, kitty, meow',
-                    'Waves',
-                    'Nice',
-                    'Emm, what now?'
-                    ];
-    document.getElementById('my-quote').innerHTML = '"'+ myQuotes[Math.floor(myQuotes.length * Math.random())]+'"';  
+  addRandomQuoteToPage();
+  changeLanguageBasedOnBrowserConfig();
 };
 
+function addRandomQuoteToPage() {
+  let myQuotes = ['Hi! Welcome, hello!', 
+  'Let\'s sail!',
+  'And he set sail again...',
+  'Staying home today.',
+  'We and the crater :)',
+  'Whoa, there are more islands here',
+  'Pigeons, pigeons everywhere!',
+  'Kitty, kitty, meow',
+  'Waves',
+  'Nice',
+  'Emm, what now?'
+  ];
+document.getElementById('my-quote').innerHTML = '"'+ myQuotes[Math.floor(myQuotes.length * Math.random())]+'"';  
+}
+
+function changeLanguageBasedOnBrowserConfig() {
+  let currentBrowserLanguage = getLang();
+  if(currentBrowserLanguage != undefined)
+  {
+    $("#language").val(returnTranslatedLanguageOrDefault(currentBrowserLanguage)).change();
+  }
+}
+
+function returnTranslatedLanguageOrDefault(rfc5646LanguageTag) {
+  var languageHasTranslation = 0 != $('#language option[value='+rfc5646LanguageTag+']').length;
+  if (languageHasTranslation) {
+    return rfc5646LanguageTag;
+  }
+  return 'en';
+
+}
+
+function getLang() { //returns value from RFC 5646: Tags for Identifying Languages (also known as BCP 47)
+  if (navigator.languages != undefined) 
+    return navigator.languages[0]; 
+  return navigator.language;
+}
 
 function localizeWord(word) {
   return (localizationTable[document.getElementById('language').value][word]);

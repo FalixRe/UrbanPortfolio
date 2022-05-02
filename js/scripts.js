@@ -129,7 +129,7 @@ let localizationTable = {
     coursesTitle: 'Cursos',
     coursesContent: 'SAFe practitioner, licencia de conducir, licencia de navegación(velero)',
     skillsTitle: 'Habilidades',
-    skillsContent: 'Buenas habilidades de trabajo en equipo, habilidades analíticas, bastante fluidez con las ordenadoras. Actualmente soy más fluido con C++, pero también tengo uns conocimiento de C, Java, C#, lua, ttcn-3, html, css, js.',
+    skillsContent: 'Buenas habilidades de trabajo en equipo, habilidades analíticas, bastante fluidez con los ordenadores. Actualmente soy más fluido con C++, pero también tengo uns conocimiento de C, Java, C#, lua, ttcn-3, html, css, js.',
     languagesTitle: 'Lenguajes',
     languagesContent: 'Polaco, Inglese, Español',
     findMeOn:'Encuéntrame en '

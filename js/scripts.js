@@ -137,10 +137,9 @@ let localizationTable = {
   }
 }
 
-
 window.onload = function() {
   addRandomQuoteToPage();
-  changeLanguageBasedOnBrowserConfig();
+  changeLanguageAccordingToUrlOrConfig();
 };
 
 function addRandomQuoteToPage() {
@@ -159,21 +158,38 @@ function addRandomQuoteToPage() {
 document.getElementById('my-quote').innerHTML = '"'+ myQuotes[Math.floor(myQuotes.length * Math.random())]+'"';  
 }
 
+function changeLanguageAccordingToUrlOrConfig() {
+  let params = (new URL(document.location)).searchParams;
+  let lang = params.get('lang');
+  if (languageHasTranslation(lang)) {
+    changeLanguage(lang);
+  }
+  else {
+    changeLanguageBasedOnBrowserConfig();
+  }
+}
+
 function changeLanguageBasedOnBrowserConfig() {
   let currentBrowserLanguage = getLang();
   if(currentBrowserLanguage != undefined)
   {
-    $("#language").val(returnTranslatedLanguageOrDefault(currentBrowserLanguage)).change();
+    changeLanguage(returnTranslatedLanguageOrDefault(currentBrowserLanguage));
   }
 }
 
+function changeLanguage(translatedLanguageTag) {
+    $("#language").val(translatedLanguageTag).change();
+}
+
 function returnTranslatedLanguageOrDefault(rfc5646LanguageTag) {
-  var languageHasTranslation = 0 != $('#language option[value='+rfc5646LanguageTag+']').length;
-  if (languageHasTranslation) {
+  if (languageHasTranslation(rfc5646LanguageTag)) {
     return rfc5646LanguageTag;
   }
   return 'en';
+}
 
+function languageHasTranslation(rfc5646LanguageTag) {
+  return (0 != $('#language option[value='+rfc5646LanguageTag+']').length);
 }
 
 function getLang() { //returns value from RFC 5646: Tags for Identifying Languages (also known as BCP 47)
@@ -182,12 +198,24 @@ function getLang() { //returns value from RFC 5646: Tags for Identifying Languag
   return navigator.language;
 }
 
-function localizeWord(word) {
-  return (localizationTable[document.getElementById('language').value][word]);
-}
-
 function localizeAll() {
+  updateUrlStringWithLangParam();
   for (element of (document.querySelectorAll('[data-localizationName]'))) {
     element.innerHTML = localizeWord(element.getAttribute('data-localizationName'));
   }
+}
+
+function updateUrlStringWithLangParam() {
+  let params = (new URL(document.location)).searchParams;
+  params.set('lang',getLanguageFromDomElement());
+  let newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + params;    
+  window.history.pushState({ path: newUrl }, '', newUrl);
+}
+
+function localizeWord(word) {
+  return (localizationTable[getLanguageFromDomElement()][word]);
+}
+
+function getLanguageFromDomElement() {
+  return document.getElementById('language').value;
 }

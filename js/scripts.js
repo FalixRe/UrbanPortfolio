@@ -70,7 +70,10 @@ let localizationTable = {
     skillsContent: 'Good teamworking skills, analytical skills, quite fluent with computers. Currently I am most fluent with C++, but I have also brief knowlegde of C, Java, C#, lua, ttcn-3, html, css, js.',
     languagesTitle: 'Languages',
     languagesContent: 'Polish, English, Spanish',
-    findMeOn:'Find me on'
+    findMeOn:'Find me on',
+    projects: 'Projects',
+    webAppProjects: 'Recently, I have been working on some of my own web application projects:',
+    electronicsChannel: 'During collage I was also very intrested in microcontrollers programming and some of my projects can be seen on this YouTube channel:'
   },
   pl: {
     intro:'Wstęp',
@@ -101,7 +104,10 @@ let localizationTable = {
     skillsContent: 'Dobre umiejętności pracy w zespole, umiejętności analityczne, dobrze radzę sobie z komputerami. Aktulanie najlepiej radzę sobie z C++, ale znam też podstawy C, Java, C#, lua, ttcn-3, html, css, js.',
     languagesTitle: 'Języki',
     languagesContent: 'Polski, Angielski, Hiszpański',
-    findMeOn:'Znajdź mnie na'
+    findMeOn:'Znajdź mnie na',
+    projects: 'Projekty',
+    webAppProjects: 'Ostatnio pracowałem nad kilkoma własnymi projektami aplikacji webowych:',
+    electronicsChannel: 'W czasie studiów byłem także zainteresowany programowaniem mikrokontrolerów i niektóre z moich projektów można zobaczyć na tym kanale YouTube:'
   },
   es: {
     intro:'Intro',
@@ -132,8 +138,10 @@ let localizationTable = {
     skillsContent: 'Buenas habilidades de trabajo en equipo, habilidades analíticas, bastante fluidez con los ordenadores. Actualmente soy más fluido con C++, pero también tengo uns conocimiento de C, Java, C#, lua, ttcn-3, html, css, js.',
     languagesTitle: 'Lenguajes',
     languagesContent: 'Polaco, Inglese, Español',
-    findMeOn:'Encuéntrame en '
-    
+    findMeOn:'Encuéntrame en ',
+    projects: 'Proyectos',
+    webAppProjects: 'Recientemente he trabajado en algunos proyectos personales de aplicaciones web:',
+    electronicsChannel: 'Durante la universidad, también estaba muy interesado en la programación de microcontroladores y algunos de mis proyectos se pueden ver en este canal de YouTube:'
   }
 }
 
